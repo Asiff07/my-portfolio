@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #1a1a1a; /* near-black background */
+  --foreground: #ffffff; /* white text */
+
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+
+  --primary: rgb(90, 20, 70); /* light purple */
+  --primary-foreground: #ffffff;
+
+  --secondary: #1a1a1a; /* reuse background to stay within 4 colors */
+  --secondary-foreground: #ffffff;
+
+  --muted: #1a1a1a; /* muted surfaces stay dark */
+  --muted-foreground: #9ca3af; /* gray for secondary text */
+
+  --accent: rgb(90, 20, 70); /* reuse primary as accent */
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444; /* optional 5th color for errors */
+  --destructive-foreground: #ffffff;
+
+  --border: #2a2f3a; /* subtle grey border (no blue) */
+  --input: #2a2f3a; /* match border */
+  --ring: #e5e7eb; /* whitish-grey focus ring */
+
+  --radius: 0.5rem; /* slightly rounded corners */
+
+  /* leave chart tokens as-is to avoid unrelated changes */
+  /* sidebar tokens can follow main theme */
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: rgb(90, 20, 70);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgb(90, 20, 70);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2f3a;
+  --sidebar-ring: #e5e7eb;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+
+  --primary: rgb(90, 20, 70); /* light purple */
+  --primary-foreground: #ffffff;
+
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1a1a1a;
+  --muted-foreground: #9ca3af;
+
+  --accent: rgb(90, 20, 70); /* reuse primary as accent */
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #2a2f3a;
+  --input: #2a2f3a;
+  --ring: #e5e7eb;
+
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: rgb(90, 20, 70);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgb(90, 20, 70);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2f3a;
+  --sidebar-ring: #e5e7eb;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hover-elevate {
+    transition: transform 300ms ease, box-shadow 300ms ease, background-color 200ms ease, color 200ms ease;
+    will-change: transform;
+  }
+  .hover-elevate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px color-mix(in oklab, var(--color-ring) 40%, transparent) inset;
+  }
+
+  .card-tint {
+    background-color: color-mix(in oklab, var(--color-foreground) 6%, transparent);
+  }
+
+  .parallax-bg {
+    background-image: radial-gradient(
+        40% 40% at 50% 0%,
+        color-mix(in oklab, var(--color-ring) 18%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(28% 28% at 85% 10%, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent 70%);
+    background-attachment: fixed, fixed;
+    background-repeat: no-repeat;
+    background-position: 50% 0%, 85% 10%;
+    filter: saturate(115%);
+    opacity: 0.9;
+  }
+}
