@@ -1,11 +1,18 @@
 "use client"
 
 import type React from "react"
-
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { User, Briefcase, Wrench, GraduationCap, Boxes, Mail } from "lucide-react"
+import { User, Briefcase, Wrench, GraduationCap, Boxes, Mail, Menu } from "lucide-react"
 import { getLenis, getStickyOffset } from "@/components/lenis-provider"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const NAV_ITEMS = [
   { href: "#about", label: "About", Icon: User },
@@ -58,19 +65,51 @@ export function SiteNavbar({ className }: { className?: string }) {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="flex items-center gap-4 sm:gap-6" aria-label="Main navigation">
-          {NAV_ITEMS.map(({ href, label, Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={(e) => handleAnchorClick(e, href)}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Icon className="h-4 w-4" aria-hidden="true" />
-              <span>{label}</span>
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden sm:flex sm:items-center sm:gap-6">
+            <nav className="flex items-center gap-4 sm:gap-6" aria-label="Main navigation">
+            {NAV_ITEMS.map(({ href, label, Icon }) => (
+                <Link
+                key={href}
+                href={href}
+                onClick={(e) => handleAnchorClick(e, href)}
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                <span>{label}</span>
+                </Link>
+            ))}
+            </nav>
+        </div>
+
+
+        {/* Mobile nav */}
+        <div className="sm:hidden">
+            <Sheet>
+                <SheetTrigger>
+                    <Menu className="h-6 w-6" />
+                </SheetTrigger>
+                <SheetContent>
+                    <SheetHeader>
+                    <SheetTitle>Navigation</SheetTitle>
+                    <SheetDescription>
+                        <nav className="flex flex-col items-start gap-4 pt-4">
+                            {NAV_ITEMS.map(({ href, label, Icon }) => (
+                                <Link
+                                key={href}
+                                href={href}
+                                onClick={(e) => handleAnchorClick(e, href)}
+                                className="inline-flex items-center gap-2 text-lg text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                <Icon className="h-5 w-5" aria-hidden="true" />
+                                <span>{label}</span>
+                                </Link>
+                            ))}
+                        </nav>
+                    </SheetDescription>
+                    </SheetHeader>
+                </SheetContent>
+            </Sheet>
+        </div>
       </div>
     </header>
   )
