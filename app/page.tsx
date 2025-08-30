@@ -166,13 +166,13 @@ export default function HomePage() {
         <motion.div style={{ y: yBg }} aria-hidden className="parallax-bg absolute inset-0 -z-10" />
         <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center">
           <div className="flex-1">
-            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-5xl">
+            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
               Sk Asif Ahmed —{" "}
               <Typewriter
                 className="text-primary"
                 words={[
-                  "Aspiring Full‑Stack Developer",
-                  "Data Structures & Algorithms Enthusiast",
+                  "Full‑Stack Developer ",
+                  "Data Structures & Algorithms ",
                   "LeetCode Solver",
                   "Backend Learner",
                   "DevOps Explorer",
@@ -293,7 +293,7 @@ export default function HomePage() {
               {/* Resume button beside/under the portrait */}
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <Button asChild variant="secondary" className="hover-elevate bg-foreground/10 hover:bg-foreground/20">
-                  <a href="/resume.pdf" download>
+                  <a href="/Resume.pdf" download>
                     <FileDown className="mr-2 h-4 w-4" aria-hidden="true" />
                     Download Resume
                   </a>
