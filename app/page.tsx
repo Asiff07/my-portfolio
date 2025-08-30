@@ -212,20 +212,18 @@ export default function HomePage() {
         <motion.div style={{ y: yBg }} aria-hidden className="parallax-bg absolute inset-0 -z-10" />
         <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center">
           <div className="flex-1">
-            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-5xl">
+            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
               Sk Asif Ahmed —{" "}
-              <span className="inline-block align-bottom min-h-[4.5rem] md:min-h-[6rem]">
-                <Typewriter
-                  className="text-primary"
-                  words={[
-                    "Aspiring Full‑Stack Developer",
-                    "Data Structures & Algorithms Enthusiast",
-                    "LeetCode Solver",
-                    "Backend Learner",
-                    "DevOps Explorer",
-                  ]}
-                />
-              </span>
+              <Typewriter
+                className="text-primary"
+                words={[
+                  "Full‑Stack Developer ",
+                  "Data Structures & Algorithms ",
+                  "LeetCode Solver",
+                  "Backend Learner",
+                  "DevOps Explorer",
+                ]}
+              />
             </h1>
             <p className="mt-4 text-pretty text-muted-foreground md:text-lg">
               I build scalable web applications and love experimenting with modern frameworks and deployment strategies.
