@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { useState } from "react"
 import { Typewriter } from "@/components/typewriter"
 import { SiteNavbar } from "@/components/site-navbar"
 import Link from "next/link"
@@ -42,6 +43,8 @@ import {
 import { MdEmail } from "react-icons/md"
 import { FaAws, FaGithub, FaLinkedin } from "react-icons/fa"
 import { getLenis, getStickyOffset } from "@/components/lenis-provider"
+import { useToast } from "@/components/ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
 
 const skillIconMap: Record<string, IconType> = {
   // Frontend
@@ -156,28 +159,73 @@ export default function HomePage() {
   const { scrollY } = useScroll()
   const yBg = useTransform(scrollY, [0, 600], [0, -120])
   const yImg = useTransform(scrollY, [0, 600], [0, -40])
+  const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setLoading(true)
+
+    const formData = new FormData(event.currentTarget)
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "I'll get back to you as soon as possible.",
+        })
+        ;(event.target as HTMLFormElement).reset()
+      } else {
+        throw new Error("Something went wrong")
+      }
+    } catch (error) {
+      toast({
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteNavbar />
+      <Toaster />
 
       {/* Hero */}
       <section id="home" className="relative isolate overflow-hidden mx-auto max-w-6xl px-4 pt-12 md:pt-20">
         <motion.div style={{ y: yBg }} aria-hidden className="parallax-bg absolute inset-0 -z-10" />
         <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center">
           <div className="flex-1">
-            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
+            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-5xl">
               Sk Asif Ahmed —{" "}
-              <Typewriter
-                className="text-primary"
-                words={[
-                  "Full‑Stack Developer ",
-                  "Data Structures & Algorithms ",
-                  "LeetCode Solver",
-                  "Backend Learner",
-                  "DevOps Explorer",
-                ]}
-              />
+              <span className="inline-block align-bottom min-h-[4.5rem] md:min-h-[6rem]">
+                <Typewriter
+                  className="text-primary"
+                  words={[
+                    "Aspiring Full‑Stack Developer",
+                    "Data Structures & Algorithms Enthusiast",
+                    "LeetCode Solver",
+                    "Backend Learner",
+                    "DevOps Explorer",
+                  ]}
+                />
+              </span>
             </h1>
             <p className="mt-4 text-pretty text-muted-foreground md:text-lg">
               I build scalable web applications and love experimenting with modern frameworks and deployment strategies.
@@ -574,21 +622,23 @@ export default function HomePage() {
           </p>
 
           {/* Simple form (front-end only) */}
-          <form className="mt-6 grid gap-4 md:max-w-lg" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-6 grid gap-4 md:max-w-lg" onSubmit={handleSubmit}>
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" placeholder="Your name" />
+              <Input id="name" name="name" placeholder="Your name" required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="you@example.com" />
+              <Input id="email" name="email" type="email" placeholder="you@example.com" required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="message">Message</Label>
-              <Textarea id="message" name="message" placeholder="Tell me about your project..." />
+              <Textarea id="message" name="message" placeholder="Tell me about your project..." required />
             </div>
             <div>
-              <Button type="submit">Send</Button>
+              <Button type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send"}
+              </Button>
             </div>
           </form>
 
