@@ -677,7 +677,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <p className="mt-8 text-center text-sm text-muted-foreground">© {new Date().getFullYear()} Sk Asif Ahmed</p>
+        <p className="mt-8 text-center text-sm text-muted-foreground">© {new Date().getFullYear()} Sk Asif Ahmed with 🧡</p>
       </section>
     </main>
   )
