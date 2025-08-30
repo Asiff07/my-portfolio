@@ -554,8 +554,8 @@ export default function HomePage() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {[
             {
-              title: "Notes Sharing Website",
-              desc: "A collaborative platform where students can upload notes (text, image, title) with admin privileges and restricted student logins.",
+              title: "AI Cancer Detection",
+              desc: "Developed an AI-powered system to detect cancerous cells from medical images with high accuracy. Implemented deep learning models, image preprocessing, and a web-based interface for real-time predictions.",
               tech: ["Next.js", "React.js", "Tailwind CSS", "MongoDB", "Node.js", "Express.js", "Vercel"],
             },
             {
