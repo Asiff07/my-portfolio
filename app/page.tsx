@@ -369,7 +369,7 @@ export default function HomePage() {
             {/* marker */}
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
+              className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
             >
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
@@ -391,7 +391,7 @@ export default function HomePage() {
           <li className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
+              className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
             >
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
@@ -418,7 +418,7 @@ export default function HomePage() {
           <li className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
+              className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
             >
               <GraduationCap className="h-2.5 w-2.5 text-background" />
             </span>
@@ -438,7 +438,7 @@ export default function HomePage() {
           <li className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
+              className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
             >
               <School className="h-2.5 w-2.5 text-background" />
             </span>
@@ -458,7 +458,7 @@ export default function HomePage() {
           <li className="relative">
             <span
               aria-hidden="true"
-              className="absolute -left-[7px] top-2 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
+              className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
             >
               <School className="h-2.5 w-2.5 text-background" />
             </span>
