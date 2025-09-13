@@ -557,17 +557,29 @@ export default function HomePage() {
               title: "AI Cancer Detection",
               desc: "Developed an AI-powered system to detect cancerous cells from medical images with high accuracy. Implemented deep learning models, image preprocessing, and a web-based interface for real-time predictions.",
               tech: ["Next.js", "React.js", "Tailwind CSS", "MongoDB", "Node.js", "Express.js", "Vercel"],
+              image: "/images/skin.png",
+              link: "https://skincancerdetection-u4be.onrender.com/",
             },
             {
               title: "Simon Says Game",
               desc: "Interactive memory-based game built with JavaScript.",
               tech: ["JavaScript", "HTML", "CSS"],
+              image: "/images/simon.png",
+              link: "https://simon-says-game-asiff.vercel.app/",
             },
-            { title: "Tic Tac Toe", desc: "Classic 2‑player game with a responsive UI.", tech: ["React.js", "CSS"] },
+            {
+              title: "Random Color Generator",
+              desc: "Classic Random Color Generator with a responsive UI.",
+              tech: ["React.js", "CSS"],
+              image: "/images/random.png",
+              link: "https://random-color-generator-asif.vercel.app/",
+            },
             {
               title: "Todo List",
               desc: "Task app with add, delete, and track functionality.",
               tech: ["React.js", "Tailwind CSS"],
+              image: "/images/todolist.png",
+              link: "https://todo-list-asifff.vercel.app/",
             },
           ].map((p) => (
             <article
@@ -576,7 +588,7 @@ export default function HomePage() {
             >
               <div className="aspect-video overflow-hidden rounded-md bg-foreground/5">
                 <Image
-                  src={`/abstract-geometric-shapes.png?key=82d5n&height=360&width=640&query=${encodeURIComponent(p.title)}%20thumbnail`}
+                  src={p.image || `/abstract-geometric-shapes.png?key=82d5n&height=360&width=640&query=${encodeURIComponent(p.title)}%20thumbnail`}
                   alt={`${p.title} thumbnail`}
                   width={640}
                   height={360}
@@ -592,9 +604,11 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="mt-3">
-                <Button variant="ghost" className="px-0 hover-elevate">
-                  View details →
-                </Button>
+                <a href={p.link} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" className="px-0 hover-elevate">
+                    View details →
+                  </Button>
+                </a>
               </div>
             </article>
           ))}
