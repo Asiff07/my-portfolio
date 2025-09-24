@@ -39,10 +39,11 @@ import {
   SiGit,
   SiGithub,
   SiX, // add X (Twitter) icon from Simple Icons
+  SiEjs,
+  SiPassport,
 } from "react-icons/si"
 import { MdEmail } from "react-icons/md"
 import { FaAws, FaGithub, FaLinkedin } from "react-icons/fa"
-import { getLenis, getStickyOffset } from "@/components/lenis-provider"
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
@@ -58,12 +59,16 @@ const skillIconMap: Record<string, IconType> = {
   "Material UI": SiMui,
   ShadCN: SiShadcnui,
   Bootstrap: SiBootstrap,
+  EJS: SiEjs,
   // Backend
   "Node.js": SiNodedotjs,
   "Express.js": SiExpress,
   MongoDB: SiMongodb,
   SQL: SiPostgresql, // representative icon
   PostgreSQL: SiPostgresql,
+  "Passport.js(Auth)": SiPassport,
+  "RESTful APIs": Code2,
+  "MVC Architecture": Server,
   // DevOps & Deployment
   Docker: SiDocker,
   Kubernetes: SiKubernetes,
@@ -93,12 +98,16 @@ const skillBrandColors: Record<string, string> = {
   "Material UI": "#007FFF",
   ShadCN: "#FFFFFF", // monochrome
   Bootstrap: "#7952B3",
+  EJS: "#A91E50",
   // Backend
   "Node.js": "#339933",
   "Express.js": "#FFFFFF", // monochrome
   MongoDB: "#47A248",
   SQL: "#336791",
   PostgreSQL: "#336791",
+  "Passport.js(Auth)": "#34E27A",
+  "RESTful APIs": "#FFFFFF",
+  "MVC Architecture": "#FFFFFF",
   // DevOps & Deployment
   Docker: "#2496ED",
   Kubernetes: "#326CE5",
@@ -144,14 +153,10 @@ function handleAnchorClick(e: React.MouseEvent, href: string) {
   const el = document.getElementById(id)
   if (!el) return
   e.preventDefault()
-  const offset = getStickyOffset()
-  const lenis = getLenis()
-  if (lenis) {
-    lenis.scrollTo(el, { offset: -offset })
-  } else {
-    const top = el.getBoundingClientRect().top + window.scrollY - offset
-    window.scrollTo({ top, behavior: "smooth" })
-  }
+  const header = document.querySelector("header")
+  const offset = header?.offsetHeight ?? 72
+  const top = el.getBoundingClientRect().top + window.scrollY - offset
+  window.scrollTo({ top, behavior: "smooth" })
   history.replaceState?.(null, "", href)
 }
 
@@ -374,12 +379,11 @@ export default function HomePage() {
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
             <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                <time>2023 — Present</time>
-                <span className="hidden md:inline-block">•</span>
-                <span>Full‑Stack Development Journey (Ongoing)</span>
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-medium">Full‑Stack Development Journey</h3>
+                <time className="text-xs text-muted-foreground">2023 — Present</time>
               </div>
-              <h3 className="mt-1 text-lg font-medium">Full‑Stack Development Journey</h3>
+              <p className="text-sm text-muted-foreground">Full‑Stack Development Journey (Ongoing)</p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>Completed Frontend projects: Simon Says Game, Tic Tac Toe, Todo List.</li>
                 <li>Backend with Node.js, Express.js, MongoDB (Sigma 3.0 – Shradha Khapra).</li>
@@ -396,12 +400,11 @@ export default function HomePage() {
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
             <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                <time>2021 — Present</time>
-                <span className="hidden md:inline-block">•</span>
-                <span>Freelance & Self‑Projects</span>
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-medium">Freelance & Self‑Projects</h3>
+                <time className="text-xs text-muted-foreground">2021 — Present</time>
               </div>
-              <h3 className="mt-1 text-lg font-medium">Freelance & Self‑Projects</h3>
+              <p className="text-sm text-muted-foreground">Freelance & Self‑Projects</p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>Built and deployed projects with React, Next.js, Tailwind, and Vercel.</li>
                 <li>Experimented with GCam mods, smartphone optimization, and benchmarking tools.</li>
@@ -495,6 +498,7 @@ export default function HomePage() {
                 "Material UI",
                 "ShadCN",
                 "Bootstrap",
+                "EJS",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -506,7 +510,7 @@ export default function HomePage() {
               <Server className="h-5 w-5 text-primary" aria-hidden="true" /> Backend
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Node.js", "Express.js", "MongoDB", "SQL", "PostgreSQL"].map((name) => (
+              {["Node.js", "Express.js", "MongoDB", "SQL", "PostgreSQL", "Passport.js(Auth)", "RESTful APIs"].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
             </div>
@@ -540,6 +544,7 @@ export default function HomePage() {
                 "Networking (TCP/UDP/OSI)",
                 "Deployment Strategies",
                 "Performance Optimization",
+                "MVC Architecture",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -551,14 +556,21 @@ export default function HomePage() {
       {/* Projects */}
       <section id="projects" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">Projects</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6">
           {[
             {
-              title: "AI Cancer Detection",
-              desc: "Developed an AI-powered system to detect cancerous cells from medical images with high accuracy. Implemented deep learning models, image preprocessing, and a web-based interface for real-time predictions.",
-              tech: ["Next.js", "React.js", "Tailwind CSS", "MongoDB", "Node.js", "Express.js", "Vercel"],
-              image: "/images/skin.png",
-              link: "https://skincancerdetection-u4be.onrender.com/",
+              title: "Wanderlust – Hotel Booking Website",
+              desc: "A full-stack hotel booking app built using Node.js, Express.js, MongoDB (Mongoose), EJS, Bootstrap, and MVC architecture. Features include hotel browsing, booking, authentication (Passport.js), flash alerts, sessions, Map Features and method-override for RESTful operations. Deployed on Render, with dotenv for secure environment management",
+              tech: ["JavaScript","Node.js", "MongoDB", "Express.js", "Passport.js(Auth)", "EJS", "Bootstrap", "MVC Architecture", "Render"],
+              image: "/images/wanderlust.png",
+              link: "https://wanderlust-k5em.onrender.com/listings",
+            },
+            {
+              title: "Personal Portfolio Website",
+              desc: "A responsive and animated personal portfolio website built with Next.js, React.js and Tailwind CSS. It showcases my skills, education, projects, and experience, and includes my Resume & a functional contact form using Resend",
+              tech: ["Next.js", "React.js", "Tailwind CSS", "ShadCN", "Vercel"],
+              image: "/images/portfolio.png",
+              link: "https://asifff.vercel.app/",
             },
             {
               title: "Simon Says Game",
@@ -566,13 +578,6 @@ export default function HomePage() {
               tech: ["JavaScript", "HTML", "CSS"],
               image: "/images/simon.png",
               link: "https://simon-says-game-asiff.vercel.app/",
-            },
-            {
-              title: "Random Color Generator",
-              desc: "Classic Random Color Generator with a responsive UI.",
-              tech: ["React.js", "CSS"],
-              image: "/images/random.png",
-              link: "https://random-color-generator-asif.vercel.app/",
             },
             {
               title: "Todo List",
@@ -584,31 +589,32 @@ export default function HomePage() {
           ].map((p) => (
             <article
               key={p.title}
-              className="rounded-lg border bg-card p-4 transition-all hover:bg-foreground/5 hover:-translate-y-1 hover-elevate border-border"
+              className="flex items-start gap-4 rounded-lg border bg-card p-4 transition-all hover:bg-foreground/5 hover:-translate-y-1 hover-elevate border-border"
             >
-              <div className="aspect-video overflow-hidden rounded-md bg-foreground/5">
+              <div className="relative w-24 h-24 flex-shrink-0">
                 <Image
                   src={p.image || `/abstract-geometric-shapes.png?key=82d5n&height=360&width=640&query=${encodeURIComponent(p.title)}%20thumbnail`}
                   alt={`${p.title} thumbnail`}
-                  width={640}
-                  height={360}
-                  className="h-full w-full object-cover"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md"
                 />
               </div>
-              <h3 className="mt-4 text-lg font-medium">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-              {/* Technologies used */}
-              <div className="mt-3 flex flex-wrap gap-2">
-                {p.tech?.map((name: string) => (
-                  <SkillPill key={name} name={name} />
-                ))}
-              </div>
-              <div className="mt-3">
-                <a href={p.link} target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" className="px-0 hover-elevate">
-                    View details →
-                  </Button>
-                </a>
+              <div className="flex flex-col">
+                <h3 className="text-lg font-medium">{p.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.desc}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {p.tech?.map((name: string) => (
+                    <SkillPill key={name} name={name} />
+                  ))}
+                </div>
+                <div className="mt-2">
+                  <a href={p.link} target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" className="px-0 hover-elevate h-auto py-0 text-sm">
+                      View details →
+                    </Button>
+                  </a>
+                </div>
               </div>
             </article>
           ))}
