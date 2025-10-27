@@ -9,8 +9,8 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Sk Asif Ahmed | PortFolio",
-  description: "Created with v0",
-  generator: "v0.app",
+  description: "Sk Asif Ahmed's personal portfolio showcasing projects and skills in Full-Stack Development, DSA, and DevOps.",
+  generator: "Next.js React.js, etc.",
 }
 
 export default function RootLayout({
