@@ -434,7 +434,7 @@ export default function HomePage() {
         </h2>
         <p className="mt-4 max-w-4xl text-muted-foreground">
           I am Sk Asif Ahmed, an aspiring Full-Stack Developer with a strong
-          foundation in Frontend and growing expertise in Backend Development.
+          foundation in Full Stack Development, DevOps Tools like Docker, K8s, CICD Pipelines using GitHub Actions and growing expertise in Backend Development.
           Passionate about building scalable web applications, experimenting with
           modern frameworks, and exploring deployment strategies, I continuously
           sharpen my skills through hands-on projects and real-world learning.
@@ -458,19 +458,19 @@ export default function HomePage() {
             <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-medium">
-                  Full‑Stack Development Journey
+                  Full‑Stack Development & DevOps Journey
                 </h3>
                 <time className="text-xs text-muted-foreground">
                   2023 — Present
                 </time>
               </div>
               <p className="text-sm text-muted-foreground">
-                Full‑Stack Development Journey (Ongoing)
+                Full‑Stack Development & DevOps Journey (Ongoing)
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>
-                  Completed Frontend projects: Simon Says Game, Tic Tac Toe,
-                  Todo List.
+                  Completed Full Stack projects: Wanderlust - Hotel Booking App, Apna Video Call - Real-time Video Conferencing App,
+                  ECommerce Website, & still working on more.
                 </li>
                 <li>
                   Backend with Node.js, Express.js, MongoDB (Sigma 3.0 –
@@ -509,8 +509,7 @@ export default function HomePage() {
                   and Vercel.
                 </li>
                 <li>
-                  Experimented with GCam mods, smartphone optimization, and
-                  benchmarking tools.
+                  Developed full‑stack apps using MERN Stack & Containerized and automated using CICD Pipeline
                 </li>
               </ul>
             </article>
@@ -556,12 +555,12 @@ export default function HomePage() {
             </span>
             <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                <time>2011 — 2013</time>
+                <time>2011 — 2023</time>
                 <span className="hidden md:inline-block">•</span>
                 <span>Secondary & Higher Secondary</span>
               </div>
               <h3 className="mt-1 text-lg font-medium">
-                Egra Public School — (ISCE) Secondary & Higher Secondary
+                Egra Public School — (ICSE) Secondary & Higher Secondary
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Completed secondary and higher secondary education, building
