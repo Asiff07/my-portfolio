@@ -55,6 +55,9 @@ import {
   SiAxios, // Added Axios
   SiSocketdotio, // Added Socket.IO
   SiPm2, // Added PM2
+  SiStripe,
+  SiRazorpay,
+  SiCloudinary,
 } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
 import { FaAws, FaGithub, FaLinkedin, FaServer } from "react-icons/fa"; // Added FaServer
@@ -78,6 +81,8 @@ const skillIconMap: Record<string, IconType> = {
   EJS: SiEjs,
   Axios: SiAxios, // Added Axios
   "Socket.IO": SiSocketdotio, // Added Socket.IO (using same for client/server for simplicity)
+  "React Router": SiReact,
+  "React Hooks": SiReact,
   // Backend
   "Node.js": SiNodedotjs,
   "Express.js": SiExpress,
@@ -93,6 +98,8 @@ const skillIconMap: Record<string, IconType> = {
   Nodemon: DiNodejsSmall, // Added Nodemon
   PM2: SiPm2, // Added PM2
   "HTTP-Status": FaServer, // Added HTTP-Status
+  Stripe: SiStripe,
+  Razorpay: SiRazorpay,
   // DevOps & Deployment
   Docker: SiDocker,
   Kubernetes: SiKubernetes,
@@ -108,6 +115,7 @@ const skillIconMap: Record<string, IconType> = {
   Heroku: SiHeroku,
   Git: SiGit,
   GitHub: SiGithub,
+  Cloudinary: SiCloudinary,
 };
 
 const skillBrandColors: Record<string, string> = {
@@ -140,6 +148,10 @@ const skillBrandColors: Record<string, string> = {
   Nodemon: "#76D04B", // Added Nodemon
   PM2: "#2B037A", // Added PM2
   "HTTP-Status": "#6C757D", // Added HTTP-Status (Neutral)
+  "React Router": "#61DAFB",
+  "React Hooks": "#61DAFB",
+  Stripe: "#635BFF",
+  Razorpay: "#002B5C",
   // DevOps & Deployment
   Docker: "#2496ED",
   Kubernetes: "#326CE5",
@@ -155,6 +167,7 @@ const skillBrandColors: Record<string, string> = {
   Heroku: "#430098",
   Git: "#F05032",
   GitHub: "#F5F5F5", // GitHub brand is black; use off‑white on dark
+  Cloudinary: "#3454D1",
 };
 
 const socialBrandColors = {
@@ -617,6 +630,8 @@ export default function HomePage() {
                 "EJS",
                 "Axios", // Added
                 "Socket.IO", // Added
+                "React Router",
+                "React Hooks",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -644,6 +659,8 @@ export default function HomePage() {
                 "Nodemon", // Added
                 "PM2", // Added
                 "HTTP-Status", // Added
+                "Stripe",
+                "Razorpay",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -689,6 +706,7 @@ export default function HomePage() {
                 "Deployment Strategies",
                 "Performance Optimization",
                 "MVC Architecture",
+                "Cloudinary",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -705,6 +723,13 @@ export default function HomePage() {
         <div className="mt-6 grid gap-6">
           {[
             {
+              title: "Buyora – Full-Stack E-Commerce Web Application",
+              desc: "A full-stack MERN e-commerce application featuring a customer-facing storefront and a separate admin panel. The platform includes JWT authentication, product search and filtering, a persistent shopping cart, and a full checkout process with Stripe, Razorpay, and COD payment integrations. The admin panel allows for product, order, and user management. Deployed on Vercel with a responsive design using Tailwind CSS.",
+              tech: ["JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Mongoose","Tailwind CSS","RESTful APIs","MVC Architecture","Vercel","React Router","Stripe","Razorpay","Cloudinary"],
+              image: "/images/buyora.png",
+              link: "https://buyora-buy.vercel.app/",
+            },
+            {
               title: "Wanderlust – Hotel Booking Website",
               desc: "A full-stack hotel booking app built using Node.js, Express.js, MongoDB (Mongoose), EJS, Bootstrap, and MVC architecture. Features include hotel browsing, booking, authentication (Passport.js), flash alerts, sessions, Map Features and method-override for RESTful operations. Deployed on Render, with dotenv for secure environment management",
               tech: [
@@ -715,6 +740,7 @@ export default function HomePage() {
                 "Express.js",
                 "Passport.js(Auth)",
                 "EJS",
+                "Cloudinary",
                 "Bootstrap",
                 "MVC Architecture",
                 "Render",
@@ -744,23 +770,9 @@ export default function HomePage() {
             {
               title: "Personal Portfolio Website",
               desc: "A responsive and animated personal portfolio website built with Next.js, React.js and Tailwind CSS. It showcases my skills, education, projects, and experience, and includes my Resume & a functional contact form using Resend",
-              tech: ["Next.js", "React.js","Material UI", "Tailwind CSS", "ShadCN", "Vercel"],
+              tech: ["Next.js", "React.js", "Material UI", "Tailwind CSS", "ShadCN", "Vercel"],
               image: "/images/portfolio.png",
               link: "https://asifff.vercel.app/",
-            },
-            {
-              title: "Simon Says Game",
-              desc: "Interactive memory-based game built with JavaScript.",
-              tech: ["JavaScript", "HTML", "CSS"],
-              image: "/images/simon.png",
-              link: "https://simon-says-game-asiff.vercel.app/",
-            },
-            {
-              title: "Todo List",
-              desc: "Task app with add, delete, and track functionality.",
-              tech: ["React.js", "Tailwind CSS"],
-              image: "/images/todolist.png",
-              link: "https://todo-list-asifff.vercel.app/",
             },
           ].map((p) => (
             <article
