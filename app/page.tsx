@@ -20,6 +20,7 @@ import {
   GraduationCap,
   School,
   FileDown,
+  Image as ImageIcon,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { IconType } from "react-icons";
@@ -37,7 +38,7 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiMongoose, // Added Mongoose
+  SiMongoose,
   SiPostgresql,
   SiDocker,
   SiKubernetes,
@@ -52,62 +53,66 @@ import {
   SiX,
   SiEjs,
   SiPassport,
-  SiAxios, // Added Axios
-  SiSocketdotio, // Added Socket.IO
-  SiPm2, // Added PM2
+  SiAxios,
+  SiSocketdotio,
+  SiPm2,
   SiStripe,
   SiRazorpay,
   SiCloudinary,
+  SiVite,
+  SiJsonwebtokens,
+  SiOpenai,
+  SiGooglegemini,
 } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
-import { FaAws, FaGithub, FaLinkedin, FaServer } from "react-icons/fa"; // Added FaServer
-import { BsShieldLockFill } from "react-icons/bs"; // Added BsShieldLockFill
-import { DiNodejsSmall } from "react-icons/di"; // Added DiNodejsSmall
+import { FaAws, FaGithub, FaLinkedin, FaServer } from "react-icons/fa";
+import { BsShieldLockFill } from "react-icons/bs";
+import { DiNodejsSmall } from "react-icons/di";
 import { useToast } from "@/components/ui/use-toast";
 import { Toaster } from "@/components/ui/toaster";
 
 const skillIconMap: Record<string, IconType> = {
-  // Frontend
   HTML: SiHtml5,
   CSS: SiCss3,
   JavaScript: SiJavascript,
   "React.js": SiReact,
   "Next.js": SiNextdotjs,
+  Vite: SiVite,
   Redux: SiRedux,
   "Tailwind CSS": SiTailwindcss,
   "Material UI": SiMui,
   ShadCN: SiShadcnui,
   Bootstrap: SiBootstrap,
   EJS: SiEjs,
-  Axios: SiAxios, // Added Axios
-  "Socket.IO": SiSocketdotio, // Added Socket.IO (using same for client/server for simplicity)
+  Axios: SiAxios,
+  "Socket.IO": SiSocketdotio,
   "React Router": SiReact,
   "React Hooks": SiReact,
-  // Backend
   "Node.js": SiNodedotjs,
   "Express.js": SiExpress,
   MongoDB: SiMongodb,
-  Mongoose: SiMongoose, // Added Mongoose
-  SQL: SiPostgresql, // representative icon
+  Mongoose: SiMongoose,
+  SQL: SiPostgresql,
   PostgreSQL: SiPostgresql,
   "Passport.js(Auth)": SiPassport,
+  JWT: SiJsonwebtokens,
   "RESTful APIs": Code2,
   "MVC Architecture": Server,
-  Bcrypt: BsShieldLockFill, // Added Bcrypt
-  Crypto: BsShieldLockFill, // Added Crypto
-  Nodemon: DiNodejsSmall, // Added Nodemon
-  PM2: SiPm2, // Added PM2
-  "HTTP-Status": FaServer, // Added HTTP-Status
+  Bcrypt: BsShieldLockFill,
+  Crypto: BsShieldLockFill,
+  Nodemon: DiNodejsSmall,
+  PM2: SiPm2,
+  "HTTP-Status": FaServer,
   Stripe: SiStripe,
   Razorpay: SiRazorpay,
-  // DevOps & Deployment
+  "OpenAI API": SiOpenai,
+  "Gemini API": SiGooglegemini,
   Docker: SiDocker,
   Kubernetes: SiKubernetes,
   "CI/CD": SiGithubactions,
   "GitHub Actions": SiGithubactions,
   Jenkins: SiJenkins,
   "Green-Blue Deployment": SiKubernetes,
-  // Cloud/VCS/Concepts
   "AWS EC2": FaAws,
   Vercel: SiVercel,
   Render: SiRender,
@@ -116,65 +121,67 @@ const skillIconMap: Record<string, IconType> = {
   Git: SiGit,
   GitHub: SiGithub,
   Cloudinary: SiCloudinary,
+  ImageKit: ImageIcon,
 };
 
 const skillBrandColors: Record<string, string> = {
-  // Frontend
   HTML: "#E34F26",
   CSS: "#1572B6",
   JavaScript: "#F7DF1E",
   "React.js": "#61DAFB",
-  "Next.js": "#FFFFFF", // Next is monochrome
+  "Next.js": "#FFFFFF",
+  Vite: "#646CFF",
   Redux: "#764ABC",
   "Tailwind CSS": "#38B2AC",
   "Material UI": "#007FFF",
-  ShadCN: "#FFFFFF", // monochrome
+  ShadCN: "#FFFFFF",
   Bootstrap: "#7952B3",
   EJS: "#A91E50",
-  Axios: "#5A29E4", // Added Axios
-  // Backend
+  Axios: "#5A29E4",
   "Node.js": "#339933",
-  "Express.js": "#FFFFFF", // monochrome
+  "Express.js": "#FFFFFF",
   MongoDB: "#47A248",
-  Mongoose: "#880000", // Added Mongoose
+  Mongoose: "#880000",
   SQL: "#336791",
   PostgreSQL: "#336791",
   "Passport.js(Auth)": "#34E27A",
+  JWT: "#FFFFFF",
   "RESTful APIs": "#FFFFFF",
   "MVC Architecture": "#FFFFFF",
-  "Socket.IO": "#FFFFFF", // Added Socket.IO (Monochrome)
-  Bcrypt: "#6C757D", // Added Bcrypt (Neutral)
-  Crypto: "#6C757D", // Added Crypto (Neutral)
-  Nodemon: "#76D04B", // Added Nodemon
-  PM2: "#2B037A", // Added PM2
-  "HTTP-Status": "#6C757D", // Added HTTP-Status (Neutral)
+  "Socket.IO": "#FFFFFF",
+  Bcrypt: "#6C757D",
+  Crypto: "#6C757D",
+  Nodemon: "#76D04B",
+  PM2: "#2B037A",
+  "HTTP-Status": "#6C757D",
   "React Router": "#61DAFB",
   "React Hooks": "#61DAFB",
   Stripe: "#635BFF",
   Razorpay: "#002B5C",
-  // DevOps & Deployment
+  "OpenAI API": "#412991",
+  "Gemini API": "#4285F4",
   Docker: "#2496ED",
   Kubernetes: "#326CE5",
-  "CI/CD": "#2088FF", // GitHub Actions blue
+  "CI/CD": "#2088FF",
   "GitHub Actions": "#2088FF",
   Jenkins: "#D24939",
   "Green-Blue Deployment": "#34D399",
-  // Cloud/VCS/Concepts
   "AWS EC2": "#FF9900",
-  Vercel: "#FFFFFF", // monochrome
+  Vercel: "#FFFFFF",
   Render: "#46E3B7",
   Netlify: "#00C7B7",
   Heroku: "#430098",
   Git: "#F05032",
-  GitHub: "#F5F5F5", // GitHub brand is black; use off‑white on dark
+  GitHub: "#F5F5F5",
   Cloudinary: "#3454D1",
+  ImageKit: "#00C4F4",
 };
 
 const socialBrandColors = {
-  email: "#D1D5DB", // muted gray
+  email: "#D1D5DB",
   github: "#F5F5F5",
   linkedin: "#0A66C2",
-  x: "#FFFFFF", // X is monochrome
+  x: "#FFFFFF",
 };
 
 function SkillPill({ name }: { name: string }) {
@@ -261,7 +268,6 @@ export default function HomePage() {
       <SiteNavbar />
       <Toaster />
 
-      {/* Hero */}
       <section
         id="home"
         className="relative isolate overflow-hidden mx-auto max-w-6xl px-4 pt-12 md:pt-20"
@@ -372,10 +378,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Profile image */}
           <motion.div style={{ y: yImg }} className="flex-1 w-full md:w-auto">
             <div className="relative mx-auto md:mx-0">
-              {/* Decorative background layers behind the portrait */}
               <motion.div
                 aria-hidden
                 className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[28px]"
@@ -388,7 +392,6 @@ export default function HomePage() {
                       "radial-gradient(60% 60% at 50% 40%, color-mix(in oklab, var(--color-primary) 22%, transparent) 0%, color-mix(in oklab, var(--color-primary) 8%, transparent) 45%, transparent 70%)",
                   }}
                 />
-                {/* fine grid with fade mask */}
                 <div
                   className="absolute inset-0 rounded-[28px] opacity-[0.22]"
                   style={{
@@ -412,7 +415,6 @@ export default function HomePage() {
                   className="h-full w-full object-cover"
                   priority
                 />
-                {/* neutral inner ring to replace blue outline */}
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-0 rounded-3xl"
@@ -422,7 +424,6 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Resume button beside/under the portrait */}
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <Button
                   asChild
@@ -440,7 +441,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About */}
       <section id="about" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           About
@@ -454,14 +454,12 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* Experience */}
       <section id="experience" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Experience
         </h2>
         <ol role="list" className="mt-6 space-y-6 border-l border-border pl-6">
           <li className="relative">
-            {/* marker */}
             <span
               aria-hidden="true"
               className="absolute -left-[7px] top-5 z-10 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-foreground ring-2 ring-ring"
@@ -530,7 +528,6 @@ export default function HomePage() {
         </ol>
       </section>
 
-      {/* Education */}
       <section id="education" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Education
@@ -603,7 +600,6 @@ export default function HomePage() {
         </ol>
       </section>
 
-      {/* Skills */}
       <section id="skills" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Skills
@@ -622,16 +618,11 @@ export default function HomePage() {
                 "JavaScript",
                 "React.js",
                 "Next.js",
+                "Vite",
                 "Redux",
                 "Tailwind CSS",
                 "Material UI",
-                "ShadCN",
                 "Bootstrap",
-                "EJS",
-                "Axios", // Added
-                "Socket.IO", // Added
-                "React Router",
-                "React Hooks",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -648,17 +639,13 @@ export default function HomePage() {
                 "Node.js",
                 "Express.js",
                 "MongoDB",
-                "Mongoose", // Added
+                "Mongoose",
                 "SQL",
-                "PostgreSQL",
-                "Passport.js(Auth)",
+                "JWT",
                 "RESTful APIs",
-                "Socket.IO", // Added
-                "Bcrypt", // Added
-                "Crypto", // Added
-                "Nodemon", // Added
-                "PM2", // Added
-                "HTTP-Status", // Added
+                "Socket.IO",
+                "OpenAI API",
+                "Gemini API",
                 "Stripe",
                 "Razorpay",
               ].map((name) => (
@@ -678,8 +665,6 @@ export default function HomePage() {
                 "Kubernetes",
                 "CI/CD",
                 "GitHub Actions",
-                "Jenkins",
-                "Green-Blue Deployment",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -698,15 +683,11 @@ export default function HomePage() {
                 "AWS EC2",
                 "Vercel",
                 "Render",
-                "Netlify",
-                "Heroku",
                 "Git",
                 "GitHub",
-                "Networking (TCP/UDP/OSI)",
-                "Deployment Strategies",
-                "Performance Optimization",
-                "MVC Architecture",
                 "Cloudinary",
+                "ImageKit",
+                "MVC Architecture",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -715,7 +696,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Projects */}
       <section id="projects" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Projects
@@ -725,9 +705,16 @@ export default function HomePage() {
             {
               title: "Buyora – Full-Stack E-Commerce Web Application",
               desc: "A full-stack MERN e-commerce application featuring a customer-facing storefront and a separate admin panel. The platform includes JWT authentication, product search and filtering, a persistent shopping cart, and a full checkout process with Stripe, Razorpay, and COD payment integrations. The admin panel allows for product, order, and user management. Deployed on Vercel with a responsive design using Tailwind CSS.",
-              tech: ["JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Mongoose","Tailwind CSS","RESTful APIs","MVC Architecture","Vercel","React Router","Stripe","Razorpay","Cloudinary"],
+              tech: ["JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Tailwind CSS", "RESTful APIs", "MVC Architecture", "Vercel", "React Router", "Stripe", "Razorpay", "Cloudinary"],
               image: "/images/buyora.png",
               link: "https://buyora-buy.vercel.app/",
+            },
+            {
+              title: "SigmaGPT — Next Gen Multi-Model AI Chat Application",
+              desc: "Developed an advanced AI chat platform integrating both OpenAI (GPT) and Google (Gemini) APIs for dynamic, multi-model conversations. Engineered a MERN-stack backend with secure JWT authentication and a React/Vite frontend for a responsive user experience. Features AI-powered image generation via ImageKit and Stripe integration for subscription management.",
+              tech: ["React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Bcrypt", "OpenAI API", "Gemini API", "ImageKit", "Stripe"],
+              image: "/images/sigmagpt.png",
+              link: "https://asif-sigmagpt.vercel.app/",
             },
             {
               title: "Wanderlust – Hotel Booking Website",
@@ -788,8 +775,8 @@ export default function HomePage() {
                     )}%20thumbnail`
                   }
                   alt={`${p.title} thumbnail`}
-                  fill // Use fill instead of layout
-                  style={{ objectFit: "cover" }} // Use style object for objectFit
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="rounded-md"
                 />
               </div>
@@ -817,7 +804,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Achievements */}
       <section
         id="achievements"
         className="mx-auto mt-16 max-w-6xl px-4 md:mt-24"
@@ -838,7 +824,6 @@ export default function HomePage() {
         </ul>
       </section>
 
-      {/* Contact */}
       <section
         id="contact"
         className="mx-auto mt-16 max-w-6xl px-4 pb-16 md:mt-24 md:pb-24"
@@ -852,7 +837,6 @@ export default function HomePage() {
             or the links below.
           </p>
 
-          {/* Simple form (front-end only) */}
           <form className="mt-6 grid gap-4 md:max-w-lg" onSubmit={handleSubmit}>
             <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>
@@ -884,7 +868,6 @@ export default function HomePage() {
             </div>
           </form>
 
-          {/* Direct links */}
           <div className="mt-6 grid gap-3 text-sm">
             <a
               className="inline-flex items-center gap-2 text-primary hover:underline underline-offset-2"
