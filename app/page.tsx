@@ -446,11 +446,13 @@ export default function HomePage() {
           About
         </h2>
         <p className="mt-4 max-w-4xl text-muted-foreground">
-          I am Sk Asif Ahmed, an aspiring Full-Stack Developer with a strong
-          foundation in Full Stack Development, DevOps Tools like Docker, K8s, CICD Pipelines using GitHub Actions and growing expertise in Backend Development.
-          Passionate about building scalable web applications, experimenting with
-          modern frameworks, and exploring deployment strategies, I continuously
-          sharpen my skills through hands-on projects and real-world learning.
+          I’m Asif Ahmed, a third-year Computer Science Engineering student at Adamas University (CGPA: 9.0) and part of the Sigma 3.0 batch of Apna College, where I completed  DSA in Java, Web Development & DevOps journey .
+          <br /> <br />
+          I specialize in full-stack web development, working with React, Redux, Tailwind CSS, Node.js, Express.js, MongoDB, and SQL. I’ve built projects like Wanderlust (Airbnb clone), Buyora (E-commerce website with payment integration), and SigmaGPT (AI Chat App with text & image generation).
+
+          I’m also exploring DevOps tools such as Docker, GitHub Actions (CI/CD), Kubernetes, Terraform, and Ansible to strengthen my deployment and cloud skills.
+          <br /><br />
+          I’ve participated in multiple hackathons, winning one hosted by IIT Hyderabad. Coming from West Bengal, I’m driven by curiosity, consistency, and a goal to become an SDE at a top tech company while contributing to impactful projects.
         </p>
       </section>
 
@@ -480,16 +482,19 @@ export default function HomePage() {
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>
-                  Completed Full Stack projects: Wanderlust - Hotel Booking App, Apna Video Call - Real-time Video Conferencing App,
-                  ECommerce Website, & still working on more.
+                  Built multiple end-to-end full-stack applications, including:
+                  🛒 Buyora – Complete e-commerce platform with authentication, image uploads (Cloudinary), and payment integration. <br />
+                  💬 SigmaGPT – Next-gen AI Chat App with text generation (Gemini API & OpenAI) and image generation using ImageKit. <br />
+                  🚗 Full-Stack Uber Clone – Real-time ride booking platform with live driver tracking. <br />
+                  🌐 Full-Stack Social Media Platform – Featuring posts, likes, follows, comments, and real-time chat system. <br />
+                  🏨 Wanderlust – Hotel booking web app with authentication and creating listings, reviews and also integrated mapbox to see the real location of the hotels <br />
+                  🎥 Apna Video Call – Real-time video conferencing app with secure peer-to-peer connection.
                 </li>
                 <li>
-                  Backend with Node.js, Express.js, MongoDB (Sigma 3.0 –
-                  Shradha Khapra).
+                  Gained practical experience in DevOps, working with Docker, CI/CD pipelines (GitHub Actions), and cloud deployment and Kubernetes ( K8s).
                 </li>
                 <li>
-                  Explored DevOps: CI/CD, containerization, and cloud
-                  deployment.
+                  Currently solving Leetcode for scaling myself in Data Structures and Algorithms & exploring Terraform, Ansible, and AWS for infrastructure automation and cloud orchestration..
                 </li>
               </ul>
             </article>
@@ -516,11 +521,13 @@ export default function HomePage() {
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>
-                  Built and deployed projects with React, Next.js, Tailwind,
-                  and Vercel.
+                  Designed, developed, and deployed multiple frontend and full-stack projects using React, Next.js, Tailwind CSS, and Vercel.
                 </li>
                 <li>
-                  Developed full‑stack apps using MERN Stack & Containerized and automated using CICD Pipeline
+                  Built and containerized MERN stack applications with Node.js, Express.js, MongoDB, and React, implementing CI/CD pipelines (GitHub Actions) for automated deployment.
+                </li>
+                <li>
+                  Focused on scalable architecture, clean UI, and production-grade deployment workflows.
                 </li>
               </ul>
             </article>
@@ -812,14 +819,22 @@ export default function HomePage() {
           Achievements
         </h2>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-foreground">
-          <li>Completed Frontend Development curriculum (Sigma 3.0).</li>
+          <li>Completed the Frontend Development curriculum (Sigma 3.0) and built multiple mini-projects showcasing problem-solving and design thinking.</li>
           <li>
-            Developed multiple mini‑projects demonstrating problem‑solving and
-            design thinking.
+            Continuously learning and applying modern Full-Stack and DevOps practices to improve scalability and performance.
           </li>
           <li>
-            Continuously learning and applying modern Full‑Stack & DevOps
-            practices.
+            🏆 Hack O NIT – Runners Up, Narula Institute of Technology (24-hour hackathon).
+            Presented a low-cost medical device that measures ECG, SpO₂, body temperature, heart rate, fall detection, and oxygen levels — later showcased at IIT Delhi.
+          </li>
+          <li>
+            🥇 Top LeetCode Solver in section; participated in Clash of Coders competitive coding contest.
+          </li>
+          <li>
+            🏅 Model Making Competition (AdiNova, Adamas University) – 1st Prize (twice) for innovation and design.
+          </li>
+          <li>
+            🔬 Currently developing a Flap Monitoring Device using CNN and multi-sensor integration (RGB + thermal cameras) to detect tissue adaptation in real time — aiming to make advanced medical diagnostics affordable in India.
           </li>
         </ul>
       </section>
