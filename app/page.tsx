@@ -279,16 +279,22 @@ export default function HomePage() {
         />
         <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center">
           <div className="flex-1">
-            <h1 className="text-balance text-3xl font-semibold leading-tight md:text-4xl">
-              Sk Asif Ahmed —{" "}
+            <h1 className="text-balance text-2xl font-semibold leading-tight md:text-4xl">
+              Sk Asif Ahmed —{" "} <br />
               <Typewriter
                 className="text-primary"
                 words={[
-                  "Full‑Stack Developer ",
-                  "Data Structures & Algorithms ",
-                  "LeetCode Solver",
-                  "Backend Learner",
-                  "DevOps Explorer",
+                  "Full‑Stack Developer",
+                  "Automating Workflows",
+                  "Containerized Workflows",
+                  "Dockerizing Web Apps",
+                  "Enhancing Cloud Skills",
+                  "LeetCode with Sip of Tea",
+                  "Performance Monitoring",
+                  "Scaling Microservices",
+                  "Learning GraphQL",
+                  "Exploring Prometheus",
+                  "Monitoring with Grafana"
                 ]}
               />
             </h1>
