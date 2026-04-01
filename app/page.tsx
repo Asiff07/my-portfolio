@@ -4,6 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import { Typewriter } from "@/components/typewriter";
 import { SiteNavbar } from "@/components/site-navbar";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,8 @@ import {
   School,
   FileDown,
   Image as ImageIcon,
+  Database,
+  Terminal,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { IconType } from "react-icons";
@@ -63,9 +66,15 @@ import {
   SiJsonwebtokens,
   SiOpenai,
   SiGooglegemini,
+  SiRedis,
+  SiApachekafka,
+  SiGreensock,
+  SiCplusplus,
+  SiPython,
+  SiTypescript,
 } from "react-icons/si";
-import { MdEmail } from "react-icons/md";
-import { FaAws, FaGithub, FaLinkedin, FaServer } from "react-icons/fa";
+import { MdEmail, MdAvTimer } from "react-icons/md";
+import { FaAws, FaGithub, FaLinkedin, FaServer, FaJava } from "react-icons/fa";
 import { BsShieldLockFill } from "react-icons/bs";
 import { DiNodejsSmall } from "react-icons/di";
 import { useToast } from "@/components/ui/use-toast";
@@ -97,7 +106,10 @@ const skillIconMap: Record<string, IconType> = {
   "Passport.js(Auth)": SiPassport,
   JWT: SiJsonwebtokens,
   "RESTful APIs": Code2,
+  "Rate Limiting": MdAvTimer,
   "MVC Architecture": Server,
+  Redis: SiRedis,
+  Kafka: SiApachekafka,
   Bcrypt: BsShieldLockFill,
   Crypto: BsShieldLockFill,
   Nodemon: DiNodejsSmall,
@@ -122,6 +134,11 @@ const skillIconMap: Record<string, IconType> = {
   GitHub: SiGithub,
   Cloudinary: SiCloudinary,
   ImageKit: ImageIcon,
+  GSAP: SiGreensock,
+  Java: FaJava,
+  "C++": SiCplusplus,
+  Python: SiPython,
+  TypeScript: SiTypescript,
 };
 
 const skillBrandColors: Record<string, string> = {
@@ -140,6 +157,9 @@ const skillBrandColors: Record<string, string> = {
   Axios: "#5A29E4",
   "Node.js": "#339933",
   "Express.js": "#FFFFFF",
+  Redis: "#FF4438",
+  Kafka: "#FFFFFF",
+  "Rate Limiting": "#E34F26",
   MongoDB: "#47A248",
   Mongoose: "#880000",
   SQL: "#336791",
@@ -175,6 +195,11 @@ const skillBrandColors: Record<string, string> = {
   GitHub: "#F5F5F5",
   Cloudinary: "#3454D1",
   ImageKit: "#00C4F4",
+  GSAP: "#88CE02",
+  Java: "#f89820",
+  "C++": "#00599C",
+  Python: "#3776AB",
+  TypeScript: "#3178C6",
 };
 
 const socialBrandColors = {
@@ -223,6 +248,13 @@ export default function HomePage() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
+  const fadeInUp: any = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 0.7, ease: "easeOut" }
+  };
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
@@ -264,13 +296,21 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground relative">
+      {/* Liquid Glass Background Blobs */}
+      <div className="fixed inset-0 -z-20 overflow-hidden pointer-events-none">
+        <div className="absolute top-[0%] left-[-10%] w-[35rem] h-[35rem] bg-primary/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob relative" />
+        <div className="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-[#00C4F4]/15 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[35rem] h-[35rem] bg-[#88CE02]/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000" />
+      </div>
+
       <SiteNavbar />
       <Toaster />
 
-      <section
+      <motion.section
+        {...fadeInUp}
         id="home"
-        className="relative isolate overflow-hidden mx-auto max-w-6xl px-4 pt-12 md:pt-20"
+        className="relative isolate overflow-hidden mx-auto max-w-6xl px-4 pt-24 md:pt-32"
       >
         <motion.div
           style={{ y: yBg }}
@@ -445,9 +485,9 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="about" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
+      <motion.section {...fadeInUp} id="about" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           About
         </h2>
@@ -460,9 +500,9 @@ export default function HomePage() {
           <br /><br />
           I’ve participated in multiple hackathons, winning one hosted by IIT Hyderabad. Coming from West Bengal, I’m driven by curiosity, consistency, and a goal to become an SDE at a top tech company while contributing to impactful projects.
         </p>
-      </section>
+      </motion.section>
 
-      <section id="experience" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
+      <motion.section {...fadeInUp} id="experience" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Experience
         </h2>
@@ -474,7 +514,7 @@ export default function HomePage() {
             >
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
-            <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
+            <article className="rounded-2xl glass-card p-6 hover-elevate">
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-medium">
                   Full‑Stack Development & DevOps Journey
@@ -513,7 +553,7 @@ export default function HomePage() {
             >
               <Briefcase className="h-2.5 w-2.5 text-background" />
             </span>
-            <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
+            <article className="rounded-2xl glass-card p-6 hover-elevate">
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-medium">
                   Freelance & Self‑Projects
@@ -539,9 +579,9 @@ export default function HomePage() {
             </article>
           </li>
         </ol>
-      </section>
+      </motion.section>
 
-      <section id="education" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
+      <motion.section {...fadeInUp} id="education" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Education
         </h2>
@@ -553,7 +593,7 @@ export default function HomePage() {
             >
               <GraduationCap className="h-2.5 w-2.5 text-background" />
             </span>
-            <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
+            <article className="rounded-2xl glass-card p-6 hover-elevate">
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 <time>Ongoing</time>
                 <span className="hidden md:inline-block">•</span>
@@ -576,7 +616,7 @@ export default function HomePage() {
             >
               <School className="h-2.5 w-2.5 text-background" />
             </span>
-            <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
+            <article className="rounded-2xl glass-card p-6 hover-elevate">
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 <time>2011 — 2023</time>
                 <span className="hidden md:inline-block">•</span>
@@ -599,7 +639,7 @@ export default function HomePage() {
             >
               <School className="h-2.5 w-2.5 text-background" />
             </span>
-            <article className="rounded-lg border bg-card p-5 hover-elevate border-border">
+            <article className="rounded-2xl glass-card p-6 hover-elevate">
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 <time>2009</time>
                 <span className="hidden md:inline-block">•</span>
@@ -611,14 +651,32 @@ export default function HomePage() {
             </article>
           </li>
         </ol>
-      </section>
+      </motion.section>
 
-      <section id="skills" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
+      <motion.section {...fadeInUp} id="skills" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Skills
         </h2>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-2xl glass-card p-6">
+            <h3 className="flex items-center gap-2 text-lg font-medium">
+              <Terminal className="h-5 w-5 text-primary" aria-hidden="true" />{" "}
+              Languages
+            </h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {[
+                "Java",
+                "C++",
+                "Python",
+                "JavaScript",
+                "TypeScript",
+              ].map((name) => (
+                <SkillPill key={name} name={name} />
+              ))}
+            </div>
+          </div>
+
           <div className="rounded-lg border bg-card p-5 border-border">
             <h3 className="flex items-center gap-2 text-lg font-medium">
               <Code2 className="h-5 w-5 text-primary" aria-hidden="true" />{" "}
@@ -628,12 +686,12 @@ export default function HomePage() {
               {[
                 "HTML",
                 "CSS",
-                "JavaScript",
                 "React.js",
                 "Next.js",
                 "Vite",
                 "Redux",
                 "Tailwind CSS",
+                "GSAP",
                 "Material UI",
                 "Bootstrap",
               ].map((name) => (
@@ -651,16 +709,31 @@ export default function HomePage() {
               {[
                 "Node.js",
                 "Express.js",
-                "MongoDB",
-                "Mongoose",
-                "SQL",
+                "Kafka",
                 "JWT",
-                "RESTful APIs",
                 "Socket.IO",
                 "OpenAI API",
                 "Gemini API",
                 "Stripe",
                 "Razorpay",
+              ].map((name) => (
+                <SkillPill key={name} name={name} />
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-lg border bg-card p-5 border-border">
+            <h3 className="flex items-center gap-2 text-lg font-medium">
+              <Database className="h-5 w-5 text-primary" aria-hidden="true" />{" "}
+              Databases
+            </h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {[
+                "MongoDB",
+                "Mongoose",
+                "PostgreSQL",
+                "SQL",
+                "Redis",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
               ))}
@@ -687,9 +760,7 @@ export default function HomePage() {
           <div className="rounded-lg border bg-card p-5 border-border">
             <h3 className="flex items-center gap-2 text-lg font-medium">
               <Cloud className="h-5 w-5 text-primary" aria-hidden="true" />{" "}
-              Cloud,{" "}
-              <GitBranch className="h-5 w-5 text-primary" aria-hidden="true" />{" "}
-              VCS & Concepts
+              Cloud & Concepts
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {[
@@ -700,6 +771,7 @@ export default function HomePage() {
                 "GitHub",
                 "Cloudinary",
                 "ImageKit",
+                "Rate Limiting",
                 "MVC Architecture",
               ].map((name) => (
                 <SkillPill key={name} name={name} />
@@ -707,9 +779,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="projects" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
+      <motion.section {...fadeInUp} id="projects" className="mx-auto mt-16 max-w-6xl px-4 md:mt-24">
         <h2 className="text-balance text-2xl font-semibold md:text-3xl">
           Projects
         </h2>
@@ -718,16 +790,30 @@ export default function HomePage() {
             {
               title: "Buyora – Full-Stack E-Commerce Web Application",
               desc: "A full-stack MERN e-commerce application featuring a customer-facing storefront and a separate admin panel. The platform includes JWT authentication, product search and filtering, a persistent shopping cart, and a full checkout process with Stripe, Razorpay, and COD payment integrations. The admin panel allows for product, order, and user management. Deployed on Vercel with a responsive design using Tailwind CSS.",
-              tech: ["JavaScript", "React.js", "Node.js", "Express.js", "MongoDB", "Mongoose", "Tailwind CSS", "RESTful APIs", "MVC Architecture", "Vercel", "React Router", "Stripe", "Razorpay", "Cloudinary"],
+              tech: ["JavaScript", "React.js", "Node.js", "Express.js", "Redis", "Rate Limiting", "MongoDB", "Mongoose", "Tailwind CSS", "RESTful APIs", "MVC Architecture", "Vercel", "React Router", "Stripe", "Razorpay", "Cloudinary"],
               image: "/images/buyora.png",
               link: "https://buyora-buy.vercel.app/",
             },
             {
               title: "SigmaGPT — Next Gen Multi-Model AI Chat Application",
               desc: "Developed an advanced AI chat platform integrating both OpenAI (GPT) and Google (Gemini) APIs for dynamic, multi-model conversations. Engineered a MERN-stack backend with secure JWT authentication and a React/Vite frontend for a responsive user experience. Features AI-powered image generation via ImageKit and Stripe integration for subscription management.",
-              tech: ["React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Bcrypt", "OpenAI API", "Gemini API", "ImageKit", "Stripe"],
+              tech: ["React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Rate Limiting", "MongoDB", "Mongoose", "JWT", "Bcrypt", "OpenAI API", "Gemini API", "ImageKit", "Stripe"],
               image: "/images/sigmagpt.png",
               link: "https://asif-sigmagpt.vercel.app/",
+            },
+            {
+              title: "Drivo — Real-Time Ride Booking Platform",
+              desc: "Developed a full-stack ride-hailing application with dedicated interfaces for users and captains (drivers). Implemented real-time location tracking and live ride status updates using Socket.IO. Engineered features including an interactive map, dynamic fare calculation based on vehicle type, OTP-based ride confirmation, and smooth, responsive bottom-sheet animations powered by GSAP.",
+              tech: ["React.js", "Vite", "Tailwind CSS", "GSAP", "Node.js", "Express.js", "MongoDB", "Mongoose", "Socket.IO", "JWT", "Axios"],
+              image: "/images/drivo.png",
+              link: "",
+            },
+            {
+              title: "DevSync — Real-Time Collaborative Development Environment",
+              desc: "Built a fully-featured real-time collaborative code editor and multi-file playground. Engineered a secure code execution proxy for Java/Python/C++ and a DOM-based bundling system for web projects. Integrated WebRTC for real-time video/audio calling, Socket.IO for live cursor/code syncing, Git-like version history, and a credit-based AI assistant with Stripe subscriptions.",
+              tech: ["JavaScript", "React.js", "Vite", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Redis", "Rate Limiting", "WebRTC", "Socket.IO", "JDoodle API", "Vercel", "Render", "Stripe", "JSZip", "OpenAI API"],
+              image: "/images/devsync.png",
+              link: "https://code-collab-frontend-plum.vercel.app/",
             },
             {
               title: "NoteNexus – Premium Study Marketplace",
@@ -797,11 +883,15 @@ export default function HomePage() {
               link: "https://asifff.vercel.app/",
             },
           ].map((p) => (
-            <article
+            <motion.article
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               key={p.title}
-              className="flex items-start gap-4 rounded-lg border bg-card p-4 transition-all hover:bg-foreground/5 hover:-translate-y-1 hover-elevate border-border"
+              className="flex flex-col md:flex-row items-start gap-6 rounded-2xl glass-card p-6 transition-all hover:bg-white/10 hover:-translate-y-2 hover-[box-shadow:0_15px_40px_0_rgba(0,0,0,0.4)]"
             >
-              <div className="relative w-24 h-24 flex-shrink-0">
+              <div className="relative w-full h-56 md:w-72 md:h-44 flex-shrink-0">
                 <Image
                   src={
                     p.image ||
@@ -834,12 +924,13 @@ export default function HomePage() {
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+        {...fadeInUp}
         id="achievements"
         className="mx-auto mt-16 max-w-6xl px-4 md:mt-24"
       >
@@ -865,13 +956,14 @@ export default function HomePage() {
             🔬 Currently developing a Flap Monitoring Device using CNN and multi-sensor integration (RGB + thermal cameras) to detect tissue adaptation in real time — aiming to make advanced medical diagnostics affordable in India.
           </li>
         </ul>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+        {...fadeInUp}
         id="contact"
         className="mx-auto mt-16 max-w-6xl px-4 pb-16 md:mt-24 md:pb-24"
       >
-        <div className="rounded-lg border bg-card p-6 border-border">
+        <div className="rounded-2xl glass-card p-8">
           <h2 className="text-balance text-2xl font-semibold md:text-3xl">
             Contact
           </h2>
@@ -964,10 +1056,15 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+
+        <div className="mt-16 h-[10rem] md:h-[20rem] flex items-center justify-center">
+          <TextHoverEffect text="...Thank You !" />
+        </div>
+
         <p className="mt-8 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Sk Asif Ahmed with 🧡
         </p>
-      </section>
+      </motion.section>
     </main>
   );
 }

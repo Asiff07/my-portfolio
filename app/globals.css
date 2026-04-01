@@ -4,23 +4,23 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #1a1a1a; /* near-black background */
+  --background: #050505; /* very dark background for glass effect */
   --foreground: #ffffff; /* white text */
 
-  --card: #1a1a1a;
+  --card: rgba(255, 255, 255, 0.03);
   --card-foreground: #ffffff;
 
-  --popover: #1a1a1a;
+  --popover: rgba(255, 255, 255, 0.03);
   --popover-foreground: #ffffff;
 
-  --primary: rgb(90, 20, 70); /* light purple */
+  --primary: rgb(138, 43, 226); /* vibrant electric purple */
   --primary-foreground: #ffffff;
 
-  --secondary: #1a1a1a; /* reuse background to stay within 4 colors */
+  --secondary: rgba(255, 255, 255, 0.05);
   --secondary-foreground: #ffffff;
 
-  --muted: #1a1a1a; /* muted surfaces stay dark */
-  --muted-foreground: #9ca3af; /* gray for secondary text */
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #a1a1aa;
 
   --accent: rgb(90, 20, 70); /* reuse primary as accent */
   --accent-foreground: #ffffff;
@@ -28,8 +28,8 @@
   --destructive: #ef4444; /* optional 5th color for errors */
   --destructive-foreground: #ffffff;
 
-  --border: #2a2f3a; /* subtle grey border (no blue) */
-  --input: #2a2f3a; /* match border */
+  --border: rgba(255, 255, 255, 0.1); /* glass border */
+  --input: rgba(255, 255, 255, 0.1);
   --ring: #e5e7eb; /* whitish-grey focus ring */
 
   --radius: 0.5rem; /* slightly rounded corners */
@@ -47,23 +47,23 @@
 }
 
 .dark {
-  --background: #1a1a1a;
+  --background: #050505;
   --foreground: #ffffff;
 
-  --card: #1a1a1a;
+  --card: rgba(255, 255, 255, 0.03);
   --card-foreground: #ffffff;
 
-  --popover: #1a1a1a;
+  --popover: rgba(255, 255, 255, 0.03);
   --popover-foreground: #ffffff;
 
-  --primary: rgb(90, 20, 70); /* light purple */
+  --primary: rgb(138, 43, 226);
   --primary-foreground: #ffffff;
 
-  --secondary: #1a1a1a;
+  --secondary: rgba(255, 255, 255, 0.05);
   --secondary-foreground: #ffffff;
 
-  --muted: #1a1a1a;
-  --muted-foreground: #9ca3af;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #a1a1aa;
 
   --accent: rgb(90, 20, 70); /* reuse primary as accent */
   --accent-foreground: #ffffff;
@@ -71,8 +71,8 @@
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #2a2f3a;
-  --input: #2a2f3a;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
   --ring: #e5e7eb;
 
   --sidebar: #1a1a1a;
@@ -169,15 +169,34 @@
 
   .parallax-bg {
     background-image: radial-gradient(
-        40% 40% at 50% 0%,
-        color-mix(in oklab, var(--color-ring) 18%, transparent),
+        40% 40% at 50% 50%,
+        color-mix(in oklab, var(--color-primary) 20%, transparent),
         transparent 60%
-      ),
-      radial-gradient(28% 28% at 85% 10%, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent 70%);
-    background-attachment: fixed, fixed;
+      );
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: 50% 0%, 85% 10%;
-    filter: saturate(115%);
-    opacity: 0.9;
+    background-position: 50% 50%;
+    filter: saturate(150%) blur(40px);
+    opacity: 0.8;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  .animate-blob {
+    animation: blob 7s infinite alternate ease-in-out;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
 }

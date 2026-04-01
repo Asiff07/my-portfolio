@@ -40,7 +40,7 @@ export default function SkillsGrid() {
           "ShadCN",
           "Bootstrap",
         ])}
-        {section("Backend", Server, ["Node.js", "Express.js", "MongoDB", "SQL", "PostgreSQL"])}
+        {section("Backend", Server, ["Node.js", "Express.js", "Redis", "Kafka", "MongoDB", "SQL", "PostgreSQL"])}
         {section("DevOps & Deployment", Boxes, [
           "Docker",
           "Kubernetes",
@@ -51,7 +51,7 @@ export default function SkillsGrid() {
         ])}
         {section("Cloud & Hosting", Cloud, ["AWS EC2", "Vercel", "Render", "Netlify", "Heroku"])}
         {section("Version Control", GitBranch, ["Git", "GitHub"])}
-        {section("Concepts", Network, ["TCP/UDP", "OSI Model", "Performance Optimization", "Deployment Strategies"])}
+        {section("Concepts", Network, ["TCP/UDP", "OSI Model", "Performance Optimization", "Rate Limiting", "Deployment Strategies"])}
       </div>
     </section>
   )

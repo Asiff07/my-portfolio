@@ -47,12 +47,11 @@ export function SiteNavbar({ className }: { className?: string }) {
       role="banner"
       aria-label="Primary"
       className={cn(
-        "sticky top-0 z-50 w-full border-b bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-        "border-border",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl rounded-full border border-white/10 bg-black/40 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)]",
         className,
       )}
     >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:h-16">
+      <div className="mx-auto flex h-14 items-center justify-between px-6 md:px-8">
         {/* Brand */}
         <Link
           href="#home"
