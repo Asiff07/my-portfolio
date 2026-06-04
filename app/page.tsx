@@ -339,9 +339,8 @@ export default function HomePage() {
               />
             </h1>
             <p className="mt-4 text-pretty text-muted-foreground md:text-lg">
-              I build scalable web applications and love experimenting with
-              modern frameworks and deployment strategies. I’m growing my backend
-              expertise while staying grounded in strong frontend fundamentals.
+              I build full-stack web applications with a focus on backend performance and scalability. I’ve worked with Docker, Nginx, and Redis to optimize APIs and reduce response times under load. I enjoy solving real-world backend challenges while maintaining solid frontend fundamentals.
+
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <Button asChild className="hover-elevate">
@@ -492,13 +491,16 @@ export default function HomePage() {
           About
         </h2>
         <p className="mt-4 max-w-4xl text-muted-foreground">
-          I’m Asif Ahmed, a third-year Computer Science Engineering student at Adamas University (CGPA: 9.0) and part of the Sigma 3.0 batch of Apna College, where I completed  DSA in Java, Web Development & DevOps journey .
-          <br /> <br />
-          I specialize in full-stack web development, working with React, Redux, Tailwind CSS, Node.js, Express.js, MongoDB, and SQL. I’ve built projects like Wanderlust (Airbnb clone), Buyora (E-commerce website with payment integration), and SigmaGPT (AI Chat App with text & image generation).
-
-          I’m also exploring DevOps tools such as Docker, GitHub Actions (CI/CD), Kubernetes, Terraform, and Ansible to strengthen my deployment and cloud skills.
+          I’m Asif Ahmed, a fourth-year Computer Science Engineering student at Adamas University (CGPA: 9.0).
           <br /><br />
-          I’ve participated in multiple hackathons, winning one hosted by IIT Hyderabad. Coming from West Bengal, I’m driven by curiosity, consistency, and a goal to become an SDE at a top tech company while contributing to impactful projects.
+
+          I build full-stack web applications with a strong focus on backend performance, scalability, and deployment. I have hands-on experience with React, Node.js, Express, and MongoDB, and I’ve implemented optimizations such as pagination, Redis caching, and API load testing to improve real-world performance.
+          <br /><br />
+
+          In projects like Buyora (e-commerce platform) and SigmaGPT (AI SaaS application), I’ve worked with Docker, Nginx, and CI/CD pipelines to create production-like environments, handle traffic efficiently, and secure APIs using rate limiting.
+          <br /><br />
+
+          I’ve participated in multiple hackathons, including winning one hosted by IIT Hyderabad. I’m currently focused on strengthening my backend engineering skills and building scalable systems while working towards becoming a software engineer at a top tech company.
         </p>
       </motion.section>
 
@@ -528,19 +530,21 @@ export default function HomePage() {
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                 <li>
-                  Built multiple end-to-end full-stack applications, including:
-                  🛒 Buyora – Complete e-commerce platform with authentication, image uploads (Cloudinary), and payment integration. <br />
-                  💬 SigmaGPT – Next-gen AI Chat App with text generation (Gemini API & OpenAI) and image generation using ImageKit. <br />
-                  🚗 Full-Stack Uber Clone – Real-time ride booking platform with live driver tracking. <br />
-                  🌐 Full-Stack Social Media Platform – Featuring posts, likes, follows, comments, and real-time chat system. <br />
-                  🏨 Wanderlust – Hotel booking web app with authentication and creating listings, reviews and also integrated mapbox to see the real location of the hotels <br />
-                  🎥 Apna Video Call – Real-time video conferencing app with secure peer-to-peer connection.
+                  Built multiple end-to-end full-stack applications with a focus on backend performance, real-time systems, and scalable architectures, including:
+                  <br />
+                  • <strong>Buyora</strong> – E-commerce platform with authentication, Cloudinary image uploads, payment integration, and optimized APIs using pagination and caching. <br />
+                  • <strong>SigmaGPT</strong> – AI SaaS application with text and image generation, featuring persistent chats and scalable backend architecture. <br />
+                  • <strong>DevSync</strong> – Real-time collaborative coding platform with live code syncing (Socket.IO), WebRTC-based communication, secure multi-language code execution, and version history. <br />
+                  • <strong>NoteNexus</strong> – Academic marketplace with secure authentication, payment integration (Stripe/Razorpay), and features like wishlist and download tracking. <br />
+                  • <strong>Uber Clone</strong> – Ride booking system with real-time tracking and location-based features.
                 </li>
+
                 <li>
-                  Gained practical experience in DevOps, working with Docker, CI/CD pipelines (GitHub Actions), and cloud deployment and Kubernetes ( K8s).
+                  Gained hands-on experience in deployment and system design using Docker, Nginx, and CI/CD pipelines (GitHub Actions). Implemented caching, rate limiting, and load testing to improve API performance and stability.
                 </li>
+
                 <li>
-                  Currently solving Leetcode for scaling myself in Data Structures and Algorithms & exploring Terraform, Ansible, and AWS for infrastructure automation and cloud orchestration..
+                  Currently strengthening problem-solving skills through Data Structures & Algorithms and deepening backend engineering knowledge.
                 </li>
               </ul>
             </article>
