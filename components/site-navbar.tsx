@@ -4,7 +4,6 @@ import type React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { User, Briefcase, Wrench, GraduationCap, Boxes, Mail, Menu } from "lucide-react"
-import { getLenis, getStickyOffset } from "@/components/lenis-provider"
 import {
   Sheet,
   SheetContent,
@@ -23,6 +22,11 @@ const NAV_ITEMS = [
   { href: "#contact", label: "Contact", Icon: Mail },
 ]
 
+function getStickyOffset(): number {
+  const header = typeof document !== "undefined" ? (document.querySelector("header") as HTMLElement | null) : null
+  return header?.offsetHeight ?? 72
+}
+
 function handleAnchorClick(e: React.MouseEvent, href: string) {
   if (!href.startsWith("#")) return
   const id = href.slice(1)
@@ -30,13 +34,8 @@ function handleAnchorClick(e: React.MouseEvent, href: string) {
   if (!el) return
   e.preventDefault()
   const offset = getStickyOffset()
-  const lenis = getLenis()
-  if (lenis) {
-    lenis.scrollTo(el, { offset: -offset })
-  } else {
-    const top = el.getBoundingClientRect().top + window.scrollY - offset
-    window.scrollTo({ top, behavior: "smooth" })
-  }
+  const top = el.getBoundingClientRect().top + window.scrollY - offset
+  window.scrollTo({ top, behavior: "smooth" })
   // Optional: keep URL hash in sync
   history.replaceState(null, "", href)
 }
