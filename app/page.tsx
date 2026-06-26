@@ -810,7 +810,7 @@ export default function HomePage() {
               desc: "Developed a full-stack ride-hailing application with dedicated interfaces for users and captains (drivers). Implemented real-time location tracking and live ride status updates using Socket.IO. Engineered features including an interactive map, dynamic fare calculation based on vehicle type, OTP-based ride confirmation, and smooth, responsive bottom-sheet animations powered by GSAP.",
               tech: ["React.js", "Vite", "Tailwind CSS", "GSAP", "Node.js", "Express.js", "MongoDB", "Mongoose", "Socket.IO", "JWT", "Axios"],
               image: "/images/drivo.png",
-              link: "",
+              link: "https://ridedrivo.vercel.app/",
             },
             {
               title: "DevSync — Real-Time Collaborative Development Environment",
